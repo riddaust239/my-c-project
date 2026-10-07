@@ -1,0 +1,17 @@
+{
+    "configurations": [
+        {
+            "name": "LocalCompiler",
+            "includePath": [
+                "${workspaceFolder}\\**",
+                "${workspaceFolder}\\include\\**",
+                "${workspaceFolder}\\bin\\include\\**",
+                "${workspaceFolder}\\bin\\x86_64-w64-mingw32\\include\\**"
+            ],
+            "compilerPath": "${workspaceFolder}\\bin\\bin\\gcc.exe",
+            "cStandard": "c17",
+            "intelliSenseMode": "windows-gcc-x64"
+        }
+    ],
+    "version": 4
+}

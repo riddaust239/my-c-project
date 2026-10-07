@@ -1,0 +1,1 @@
+winget install --id Microsoft.VisualStudioCode -e --scope user --location "%LOCALAPPDATA%\Programs\Microsoft VS Code" --silent --accept-package-agreements --accept-source-agreements
