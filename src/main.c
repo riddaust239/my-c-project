@@ -2,8 +2,8 @@
 #include <stdlib.h>
 #include "api.h"
 
-int main(void) {
-    char *greeting = concat("Hello, ", "World!");
+int main() {
+    char *greeting = strcat("Hello, ", "World!");
 
     if (greeting != NULL) {
         printf("%s\n", greeting);
