@@ -64,6 +64,25 @@ char *concat(const char *s1, const char *s2)
     return dest;
 }
 
+// Absolute slice (Remove a character from an entire string globally)
+char *absslice(const char *src, char removed)
+{
+    int len = strlength(src);
+
+    char *dest = (char *)malloc(len + 1);
+
+    size_t idx = 0;
+    for (size_t i = 0; i < len; i++)
+    {
+        if (src[i] != removed)
+        {
+            dest[idx++] = src[i];
+        }
+    }
+
+    return dest;
+}
+
 // Allocates memory via malloc and extracts a substring slice
 char *substring(const char *src, size_t start, size_t len)
 {

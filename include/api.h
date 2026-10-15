@@ -15,8 +15,11 @@ char *copy(const char *src);
 // String concatenation
 char *concat(const char *s1, const char *s2);
 
-// substringing retrieval
+// Substring retrieval
 char *substring(const char *src, size_t start, size_t len);
+
+// Complete slice
+char *absslice(const char *src, char removed);
 
 // --- Data Structures ---
 
