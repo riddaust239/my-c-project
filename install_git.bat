@@ -1,0 +1,1 @@
+winget install --id Git.Git -e --scope user --location "%LOCALAPPDATA%\Programs\Git" --silent --accept-package-agreements --accept-source-agreements

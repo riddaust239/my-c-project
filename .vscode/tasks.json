@@ -1,0 +1,23 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "shell",
+			"label": "build",
+			"command": "${workspaceFolder}\\bin\\bin\\gcc.exe",
+			"args": [
+				"-g",
+				"${workspaceFolder}\\src\\*.c",
+				"-I${workspaceFolder}\\include",
+				"-o",
+				"${workspaceFolder}\\bin\\out.exe"
+			],
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			},
+			"problemMatcher": ["$gcc"],
+			"detail": "Generated task by VS Code for local compiler."
+		}
+	]
+}
