@@ -65,7 +65,7 @@ char *concat(const char *s1, const char *s2)
 }
 
 // Absolute slice (Remove a character from an entire string globally)
-char *absslice(const char *src, char removed)
+char *absslice(const char *src, char *removed)
 {
     int len = strlength(src);
 
@@ -103,6 +103,56 @@ int is_whitespace(char c)
     return c == ' ' || c == '\t' || c == '\n' || c == '\r' || c == '.' || c == ',' || c == '!' || c == '?' || c == ';';
 }
 
+// --- File Functions
+
+int fileExists(const char *fileName)
+{
+    FILE *file = fopen(fileName, "r");
+    if (file != NULL)
+    {
+        fclose(file);
+        printf("File %s is inaccessible and/or doesn't exist", fileName);
+        return 1; // File exists and can be read
+    }
+    return 0; // File does not exist or cannot be accessed
+}
+
+char *getFileContent(const char *filePath)
+{
+    if (!fileExists(filePath))
+    {
+        return copy("");
+    }
+
+    FILE *fptr;
+
+    // Declare the character array
+    // for the data to be read from file
+    char data[500];
+    fptr = fopen(filePath, "r");
+
+    if (fptr == NULL)
+    {
+        printf("File located at %s has failed to open", filePath);
+    }
+    else
+    {
+        printf("The file is now opened.\n");
+
+        // Read the data from the file
+        // using fgets() method
+        fgets(data, 500, fptr);
+
+        if (data == NULL)
+        {
+            return copy("");
+        }
+        else
+        {
+            return copy(data);
+        }
+    }
+}
 
 // --- Data Structures ---
 
@@ -121,11 +171,13 @@ typedef struct WordTable {
 
 // Counts words and returns a dynamically allocated
 // report string formatted as "%word%: %count%\n"
-char *count_words(const char *input)
+char *count_words(const char *fileInput)
 {
-    if (input == NULL || strlength(input) == 0) {
+    if (fileInput == NULL || strlength(fileInput) == 0 || fileExists(fileInput) == 0) {
         return copy("");
     }
+
+    const char *input = getFileContent(fileInput);
 
     WordTable table;
     table.size = 0;

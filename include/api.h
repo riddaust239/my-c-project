@@ -19,7 +19,13 @@ char *concat(const char *s1, const char *s2);
 char *substring(const char *src, size_t start, size_t len);
 
 // Complete slice
-char *absslice(const char *src, char removed);
+char *absslice(const char *src, char *removed);
+
+// --- File Functions ---
+
+int fileExists(const char *fileName);
+
+char *getFileContent(const char *filePath);
 
 // --- Data Structures ---
 
